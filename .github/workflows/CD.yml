@@ -5,7 +5,11 @@ env:
   repo_region:  "us-central1"
   app_name:     "artemis"
 
+
+
 name: ContinuousDelivery
+
+
 
 on:
   push:
@@ -35,10 +39,6 @@ jobs:
 
 
 
-      
-      
-      
-      
       - name: Build Image
         working-directory: ${{ env.app_name }}
         run: |
