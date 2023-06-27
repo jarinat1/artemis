@@ -35,17 +35,21 @@ jobs:
 
 
 
+      
+      
+      
+      
       - name: Build Image
         working-directory: ${{ env.app_name }}
         run: |
           docker build -t ${{ env.app_name }}:${{ env.app_version }}   . 
 
 
+      
       - name: Tag Image
         working-directory: ${{ env.app_name }}
         run: |
           docker image tag ${{ env.app_name }}:${{ env.app_version }} ${{ env.repo_region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.app_name }}/${{ env.app_name }}:${{ env.app_version }}     
-
 
     
 
@@ -54,10 +58,11 @@ jobs:
 
 
       - id: 'auth'
-        name: 'Authenticate to Google account'
+        name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
-        with: 
-           credentials_json: '${{ secrets.SERVICE._ACCOUNT}}'
+        with:
+          credentials_json: '${{ secrets.SERVICE_ACCOUNT }}'
+
           
 
 
