@@ -66,15 +66,11 @@ jobs:
           
 
 
-
       - name: Authenticate to repository
         run: |
           gcloud auth configure-docker  ${{ env.repo_region }}-docker.pkg.dev
 
           
-
-
-      # Runs a set of commands using the runners shell
       - name: Image push
         working-directory: ${{ env.app_name }}
         run: |
